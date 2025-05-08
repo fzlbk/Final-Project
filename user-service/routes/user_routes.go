@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"music-store/controllers"
-	"music-store/middleware"
+	"user-service/controllers"
+	"user-service/middleware"
 
 	"github.com/gin-gonic/gin"
 )

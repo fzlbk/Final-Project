@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"music-store/database"
-	"music-store/models"
 	"net/http"
+	"product-service/database"
+	"product-service/models"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"music-store/models"
 	"time"
+	"user-service/models"
 
 	"github.com/golang-jwt/jwt/v4"
 )

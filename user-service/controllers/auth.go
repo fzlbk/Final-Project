@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"music-store/database"
-	"music-store/models"
-	"music-store/utils"
 	"net/http"
+	"user-service/database"
+	"user-service/models"
+	"user-service/utils"
 
 	"github.com/gin-gonic/gin"
 )

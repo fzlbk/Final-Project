@@ -1,0 +1,37 @@
+services:
+  ms-db:
+    image: postgres:15-alpine
+    container_name: ms-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: music_user_service      # ← здесь было music_store_service
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  ms-user:
+    build:
+      context: ./user-service
+    container_name: ms-user
+    depends_on:
+      - ms-db
+    environment:
+      DATABASE_URL: "host=ms-db user=postgres password=yourpassword dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
+    ports:
+      - "8081:8081"
+
+  ms-product:
+    build:
+      context: ./product-service
+    container_name: ms-product
+    depends_on:
+      - ms-db
+    environment:
+      DATABASE_URL: "host=ms-db user=postgres password=yourpassword dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_data:
