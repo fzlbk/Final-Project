@@ -4,8 +4,8 @@ services:
     container_name: ms-db
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: yourpassword
-      POSTGRES_DB: music_user_service      # ← здесь было music_store_service
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: music_user_service     
     ports:
       - "5432:5432"
     volumes:
@@ -18,7 +18,7 @@ services:
     depends_on:
       - ms-db
     environment:
-      DATABASE_URL: "host=ms-db user=postgres password=yourpassword dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
+      DATABASE_URL: "host=ms-db user=postgres password=qwerty dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
     ports:
       - "8081:8081"
 
@@ -29,7 +29,7 @@ services:
     depends_on:
       - ms-db
     environment:
-      DATABASE_URL: "host=ms-db user=postgres password=yourpassword dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
+      DATABASE_URL: "host=ms-db user=postgres password=qwerty dbname=music_user_service port=5432 sslmode=disable TimeZone=UTC"
     ports:
       - "8080:8080"
 

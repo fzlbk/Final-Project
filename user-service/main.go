@@ -6,12 +6,17 @@ import (
 	"user-service/middleware"
 	"user-service/routes"
 
+	"github.com/gin-contrib/cors"
+
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	database.Connect()
+
 	r := gin.New()
+	r.Use(cors.Default())
+
 	r.Use(middleware.LoggingMiddleware())
 
 	// Аутентификация
